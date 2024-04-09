@@ -1,0 +1,69 @@
+.sidebar {
+	background-color: $color-primary;
+	grid-column: sidebar-start / sidebar-end;
+	grid-row: 1 / -1;
+	display: flex;
+	justify-content: center;
+
+	@media only screen and (max-width: $bp-large) {
+		grid-column: 1 / -1;
+		grid-row: 1 / 2;
+		justify-content: flex-end;
+		align-items: center;
+	}
+
+	&__checkbox {
+		display: none;
+	}
+
+	&__button {
+		height: 7rem;
+		width: 7rem;
+		text-align: center;
+		cursor: pointer;
+
+		&:hover {
+			& > ::before {
+				top: -1.7rem;
+			}
+
+			& > ::after {
+				top: 1.7rem;
+			}
+		}
+	}
+
+	&__icon {
+		position: relative;
+		margin-top: 3.5rem;
+
+		@media only screen and (max-width: $bp-large) {
+			margin-top: 3rem;
+		}
+
+		&,
+		&::before,
+		&::after {
+			width: 4.5rem;
+			height: 2px;
+			background-color: #fff;
+			display: inline-block;
+		}
+
+		&::before,
+		&::after {
+			content: '';
+			position: absolute;
+			left: 0;
+			transition: all 0.2s;
+		}
+
+		&::before {
+			top: -1.5rem;
+		}
+
+		&::after {
+			top: 1.5rem;
+		}
+	}
+}

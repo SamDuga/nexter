@@ -1,0 +1,108 @@
+.homes {
+	grid-column: center-start / center-end;
+	margin: 15rem 0;
+
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+	gap: 7rem;
+}
+
+.home {
+	background-color: $color-grey-light-1;
+
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	row-gap: 3.5rem;
+
+	&__img {
+		width: 100%;
+		grid-column: 1 / -1;
+		grid-row: 1 / 2;
+		z-index: 1;
+	}
+
+	&__like {
+		display: inline-block;
+		grid-column: 2 / 3;
+		grid-row: 1 / 2;
+		fill: $color-primary;
+		height: 2.5rem;
+		width: 2.5rem;
+		z-index: 2;
+		justify-self: end;
+		margin: 1rem;
+		cursor: pointer;
+
+		backface-visibility: hidden;
+		position: relative;
+
+		transition: all 0.2s;
+
+		&:hover {
+			fill: #fff;
+			stroke: $color-primary;
+			stroke-width: 4px;
+			stroke-linejoin: round;
+			paint-order: stroke;
+		}
+	}
+
+	&__name {
+		grid-column: 1 / -1;
+		grid-row: 1 / 2;
+		z-index: 1;
+
+		width: 80%;
+		justify-self: center;
+		align-self: end;
+		transform: translateY(50%);
+		padding: 1.25rem;
+
+		font-family: $font-display;
+		font-size: 1.6rem;
+		text-align: center;
+		background-color: $color-secondary;
+		color: #fff;
+		font-weight: 400;
+	}
+
+	&__location,
+	&__rooms,
+	&__area,
+	&__price {
+		display: flex;
+		align-items: center;
+		margin-left: 2rem;
+
+		svg {
+			fill: $color-primary;
+			height: 2rem;
+			width: 2rem;
+		}
+
+		p {
+			font-size: 1.5rem;
+			margin-left: 1.5rem;
+		}
+	}
+
+	&__button {
+		display: inline-block;
+		grid-column: 1 / -1;
+
+		&::after {
+			content: '';
+			display: inline-block;
+			height: 100%;
+			width: 100%;
+			border-radius: 10rem;
+
+			position: absolute;
+			top: 0;
+			left: 0;
+
+			z-index: -1;
+			transition: all 0.4s;
+		}
+	}
+}
